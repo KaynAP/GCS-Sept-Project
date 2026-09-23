@@ -873,24 +873,28 @@ Transform:
   - {fileID: 111196768}
   m_Father: {fileID: 788154055}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &798626315
-Animation:
+--- !u!95 &798626315
+Animator:
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798626313}
   m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 7400000, guid: bb19c15494925e245a969645fa3caac4, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: bb19c15494925e245a969645fa3caac4, type: 2}
-  - {fileID: 7400000, guid: c9a641aa478f5e040a9aec1257754514, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 57a99910259114a4aba6f7737e32d4ca, type: 2}
+  m_CullingMode: 0
   m_UpdateMode: 0
-  m_CullingType: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &971554444
 GameObject:
   m_ObjectHideFlags: 0
