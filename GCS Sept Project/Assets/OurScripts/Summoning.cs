@@ -4,11 +4,11 @@ public class Summoning : MonoBehaviour
 {
     private Camera mainCam;
     private Vector3 mousePos;
-    public GameObject summon;
-    public Transform summonTransform;
-    public bool canFire;
+    public GameObject Summon;
+    private Transform summonTransform;
+    public bool canSummon;
     private float timer;
-    public float timeBetweenFiring;
+    public float timeBetweenSummoning;
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
@@ -19,15 +19,20 @@ public class Summoning : MonoBehaviour
     {
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector3 rotation = mousePos - transform.position;
-
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-
-        transform.rotation = Quaternion.Euler(0, 0, rotZ);
-
-        if (Input.GetMouseButton(0) && canFire)
+        if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(summon, summonTransform.position, Quaternion.identity);
+            Instantiate(Summon, mousePos, Quaternion.identity);
         }
+
+        //Vector3 rotation = mousePos - transform.position;
+
+        //float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+        //transform.rotation = Quaternion.Euler(0, 0, rotZ);
+
+        //if (Input.GetMouseButton(0) && canSummon)
+        //{
+        //    Instantiate(Summon, summonTransform.position, Quaternion.identity);
+        
     }
 }

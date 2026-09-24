@@ -378,12 +378,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.42, y: -3.47, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 788154055}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &558406309
 GameObject:
@@ -615,6 +615,7 @@ GameObject:
   - component: {fileID: 788154058}
   - component: {fileID: 788154059}
   - component: {fileID: 788154056}
+  - component: {fileID: 788154060}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -635,6 +636,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 519420032}
   - {fileID: 798626314}
   m_Father: {fileID: 1257920538}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -751,6 +753,21 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &788154060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788154054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203aa0781f14d9c4ba8564cc79513a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Summoning
+  Summon: {fileID: 2277009911066511728, guid: 08e8840e97f876a4c9911939b2273e54, type: 3}
+  canSummon: 0
+  timeBetweenSummoning: 0
 --- !u!1 &798626313
 GameObject:
   m_ObjectHideFlags: 0
@@ -65918,7 +65935,6 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1257920538}
   - {fileID: 1349226665}
