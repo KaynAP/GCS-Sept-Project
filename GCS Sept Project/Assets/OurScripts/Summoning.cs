@@ -18,10 +18,10 @@ public class Summoning : MonoBehaviour
     void Update()
     {
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
-
+        var summonPos = new Vector3(mousePos.x, mousePos.y, 1);
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(Summon, mousePos, Quaternion.identity);
+            Instantiate(Summon, summonPos, Quaternion.identity);
         }
 
         //Vector3 rotation = mousePos - transform.position;
