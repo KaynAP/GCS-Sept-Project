@@ -44,7 +44,8 @@ public class Summoning : MonoBehaviour
         foreach (Transform transform in gameObject.transform)
         {
             Debug.Log(transform.gameObject);
-            Destroy(transform.gameObject);
+
+            transform.BroadcastMessage("Dies");
             
         }
     }
