@@ -47,7 +47,11 @@ public class EntityManager : MonoBehaviour
     #endregion
 
 
-    
+    private void SpawnEnemy()
+    {
+        
+    }
+
 
 
 }
