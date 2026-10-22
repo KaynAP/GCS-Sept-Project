@@ -21,7 +21,16 @@ public class Summoning : MonoBehaviour
         var summonPos = new Vector3(mousePos.x, mousePos.y, 1);
         if (Input.GetMouseButtonDown(0))
         {
-            Instantiate(Summon, summonPos, Quaternion.identity);
+
+            if (EntityManager.Instance.CanSummonMore())
+            {
+                GameObject summon = Instantiate(Summon, summonPos, Quaternion.identity);
+                EntityManager.Instance.AddToSpawnList(summon);
+            } else
+            {
+                Debug.Log("Cannot summon more thingies.");
+            }
+            
         }
 
         //Vector3 rotation = mousePos - transform.position;
