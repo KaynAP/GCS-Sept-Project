@@ -504,6 +504,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!1 &824874774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2277009911066511728, guid: 08e8840e97f876a4c9911939b2273e54, type: 3}
+  m_PrefabInstance: {fileID: 4289100074476626162}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &971554444
 GameObject:
   m_ObjectHideFlags: 0
@@ -65363,6 +65368,23 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!4 &1872070449 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2861594973554362627, guid: 08e8840e97f876a4c9911939b2273e54, type: 3}
+  m_PrefabInstance: {fileID: 4289100074476626162}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1872070453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824874774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a18528b0820a4d646aa6746593930af0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SummonBehavior
 --- !u!1 &1992902142
 GameObject:
   m_ObjectHideFlags: 0
@@ -65467,7 +65489,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2277009911066511728, guid: 08e8840e97f876a4c9911939b2273e54, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1872070453}
   m_SourcePrefab: {fileID: 100100000, guid: 08e8840e97f876a4c9911939b2273e54, type: 3}
 --- !u!1001 &4776546930735882518
 PrefabInstance:
@@ -65529,6 +65554,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerController
       objectReference: {fileID: 0}
+    - target: {fileID: 9148637707220823154, guid: 54fea2ec2b716b24ebf73226dc4bc984, type: 3}
+      propertyPath: playerSummon
+      value: 
+      objectReference: {fileID: 752917157}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
