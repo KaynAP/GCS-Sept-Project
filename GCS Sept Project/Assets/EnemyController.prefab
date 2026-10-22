@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8841849073536260803}
   - component: {fileID: 8682373370342240953}
   - component: {fileID: 2058751498617986567}
+  - component: {fileID: 1237373293127256277}
   m_Layer: 0
   m_Name: EnemyController
   m_TagString: Enemy
@@ -135,6 +136,19 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 10
+--- !u!114 &1237373293127256277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1580126601700713149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b9122d82fe01ae44b5eb5bc9f85e608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyChase
+  enemySpeed: 2
 --- !u!1 &2045560786893470013
 GameObject:
   m_ObjectHideFlags: 0

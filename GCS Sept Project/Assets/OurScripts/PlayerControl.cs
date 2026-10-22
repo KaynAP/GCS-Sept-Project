@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerControl : MonoBehaviour
 {
     public float movSpeed;
-    float speedX, speedY;
+    private float speedX, speedY;
     private Rigidbody2D rb;
 
     void Start()
@@ -17,5 +17,9 @@ public class PlayerControl : MonoBehaviour
         speedX = Input.GetAxisRaw("Horizontal") * movSpeed;
         speedY = Input.GetAxisRaw("Vertical") * movSpeed;
         rb.linearVelocity = new Vector2(speedX, speedY);
+    }
+
+    public Vector2 GetPlayerPosition() {
+        return transform.position;
     }
 }
