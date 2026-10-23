@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8682373370342240953}
   - component: {fileID: 2058751498617986567}
   - component: {fileID: 1237373293127256277}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyController
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2946414662362163771}
   - component: {fileID: 5307931623713541801}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemySprite
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9094559516875598810}
   - component: {fileID: 261660255338625315}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: skeleton_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
