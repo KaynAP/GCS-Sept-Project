@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 40494126}
   - component: {fileID: 40494125}
+  - component: {fileID: 40494127}
   m_Layer: 0
   m_Name: LocalManagers
   m_TagString: Untagged
@@ -149,7 +150,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityManager
   maxSummons: 1
+  enemyPrefab: {fileID: 7989069631547965947, guid: 41026876aa537b7468d2f04a3daa58d8, type: 3}
   player: {fileID: 1242964375}
+  spawnableLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &40494126
 Transform:
   m_ObjectHideFlags: 0
@@ -165,6 +170,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &40494127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40494124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b47641e97495744b1118436ff05c49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameInput
 --- !u!1 &272181524
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,7 +191,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 272181525}
-  m_Layer: 0
+  - component: {fileID: 272181526}
+  m_Layer: 6
   m_Name: Arena Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,6 +215,42 @@ Transform:
   - {fileID: 1992902144}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &272181526
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272181524}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 21
 --- !u!1 &558406309
 GameObject:
   m_ObjectHideFlags: 0
@@ -3541,7 +3595,7 @@ GameObject:
   - component: {fileID: 1651831333}
   - component: {fileID: 1651831335}
   - component: {fileID: 1651831334}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65374,7 +65428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1992902144}
   - component: {fileID: 1992902143}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65500,11 +65554,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7989069631547965947, guid: 41026876aa537b7468d2f04a3daa58d8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.12
+      value: 0.11
       objectReference: {fileID: 0}
     - target: {fileID: 7989069631547965947, guid: 41026876aa537b7468d2f04a3daa58d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.81
+      value: 9.8
       objectReference: {fileID: 0}
     - target: {fileID: 7989069631547965947, guid: 41026876aa537b7468d2f04a3daa58d8, type: 3}
       propertyPath: m_LocalPosition.z
