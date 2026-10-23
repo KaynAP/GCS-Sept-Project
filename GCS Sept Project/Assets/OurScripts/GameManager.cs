@@ -5,7 +5,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance {get; private set;}
     private GameStates gameState = GameStates.MainMenu;
 
-    private int score;
+    private int coinCount;
+    private int enemiesKilled;
+    private int finalMultipliedScore;
+    public int scoreMultiplier;
+
 
     private void Awake()
     {
@@ -24,6 +28,25 @@ public class GameManager : MonoBehaviour
     {
         gameState = newState;
         Debug.Log($"Current game state: {gameState}");
+        
+        
+        // Activate correct UIs
+        switch (gameState)
+        {
+            default:
+            case GameStates.Gameplay:
+                ScoreUI.Instance.ToggleScoreUI(true);
+                break;
+
+            case GameStates.MainMenu:
+                ScoreUI.Instance.ToggleScoreUI(false);
+                break;
+            
+            case GameStates.EndScreen:
+                ScoreUI.Instance.ToggleScoreUI(false);
+                break;
+        }
+
     }
 
     public bool IsInGamePlay()
@@ -33,7 +56,15 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseScore(int increaseAmount)
     {
-        score += increaseAmount;
+        enemiesKilled += increaseAmount;
+        finalMultipliedScore = enemiesKilled * scoreMultiplier;
+        ScoreUI.Instance.UpdateScore(finalMultipliedScore);
+    }
+
+    public void IncreaseCoins(int increaseAmount)
+    {
+        coinCount += increaseAmount;
+        ScoreUI.Instance.UpdateCoinCount(coinCount);
     }
 }
 

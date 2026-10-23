@@ -3,7 +3,7 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     
-    public int scoreIncreasePerCoin;
+    public int coinIncrement;
 
     public void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
@@ -11,7 +11,7 @@ public class Coin : MonoBehaviour
         if (PlayerHitting != null)
         {
             Debug.Log("Picking up coin!");
-            GameManager.Instance.IncreaseScore(scoreIncreasePerCoin);
+            GameManager.Instance.IncreaseCoins(coinIncrement);
             Destroy(this.gameObject);
         }
     }

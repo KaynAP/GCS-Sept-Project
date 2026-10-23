@@ -174,4 +174,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1f8b1f90f8e92c44b7799c29b7fd580, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
-  scoreIncreasePerCoin: 1
+  coinIncrement: 1

@@ -168,6 +168,7 @@ public class EntityManager : MonoBehaviour
     {
         Instantiate(coinPrefab, enemy.transform.position, enemy.transform.rotation);
         currentEnemiesList.Remove(enemy);
+        GameManager.Instance.IncreaseScore(1);
         Destroy(enemy.gameObject);
     }
 
