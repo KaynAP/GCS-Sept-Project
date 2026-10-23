@@ -242,6 +242,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SummonBehavior
   summonSpeed: 1
   summonDamage: 5
+  summonHealth: 10
 --- !u!1 &7809252295621946234
 GameObject:
   m_ObjectHideFlags: 0

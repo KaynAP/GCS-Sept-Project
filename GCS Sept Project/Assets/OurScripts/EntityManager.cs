@@ -63,6 +63,11 @@ public class EntityManager : MonoBehaviour
         summonsList.Add(summon);
     }
 
+    public void RemoveFromSummonsList(GameObject summon)
+    {
+        summonsList.Remove(summon);
+    }
+
     public void SetMaxSummons(int newMax)
     {
         maxSummons = newMax;
@@ -166,9 +171,9 @@ public class EntityManager : MonoBehaviour
 
     public void KillEnemy(Enemy enemy)
     {
+        GameManager.Instance.IncreaseScore(1);
         Instantiate(coinPrefab, enemy.transform.position, enemy.transform.rotation);
         currentEnemiesList.Remove(enemy);
-        GameManager.Instance.IncreaseScore(1);
         Destroy(enemy.gameObject);
     }
 
