@@ -8,7 +8,8 @@ public class EntityManager : MonoBehaviour
     private List<GameObject> summonsList = new List<GameObject>();
     private List<Enemy> currentEnemiesList = new List<Enemy>();
 
-    [SerializeField] private int maxSummons = 1;
+    public int baseMaxSummons;
+    private int maxSummons;
     [SerializeField] private Transform enemyPrefab;
     [SerializeField] private Transform coinPrefab;
 
@@ -31,6 +32,8 @@ public class EntityManager : MonoBehaviour
     private void Start()
     {
         GameInput.Instance.OnTestKeyPressed += InputActions_TestKeyPressed;
+
+        maxSummons = baseMaxSummons;
     }
 
     private void InputActions_TestKeyPressed(object sender, EventArgs e)
@@ -167,6 +170,37 @@ public class EntityManager : MonoBehaviour
     }
 
     #endregion
+
+
+
+    public void ClearAllEntities()
+    {
+        ClearAndDeleteSummons();
+        ClearAndDeleteEnemies();
+        SetMaxSummons(baseMaxSummons);
+        player.transform.position = Vector3.zero;
+    }
+
+
+    private void ClearAndDeleteSummons()
+    {
+        foreach (GameObject summon in summonsList)
+        {
+            Destroy(summon);
+        }
+        summonsList = new List<GameObject>();
+    }
+
+
+    private void ClearAndDeleteEnemies()
+    {
+        foreach (Enemy enemy in currentEnemiesList)
+        {
+            Destroy(enemy.gameObject);
+        }
+        currentEnemiesList = new List<Enemy>();
+    }
+
 
 
     public void KillEnemy(Enemy enemy)

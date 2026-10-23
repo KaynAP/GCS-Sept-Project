@@ -25,6 +25,11 @@ public class StartUI : MonoBehaviour
     }
 
 
+    public void ToggleActive(bool active)
+    {
+        rootObjectToHide.SetActive(active);
+    }
+
     private void PlayGame()
     {
         rootObjectToHide.SetActive(false);
