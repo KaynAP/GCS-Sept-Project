@@ -12,6 +12,7 @@ public class Coin : MonoBehaviour
         {
             Debug.Log("Picking up coin!");
             GameManager.Instance.IncreaseCoins(coinIncrement);
+            EntityManager.Instance.RemoveCoinFromList(this.gameObject);
             Destroy(this.gameObject);
         }
     }

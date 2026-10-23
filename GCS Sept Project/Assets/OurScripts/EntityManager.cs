@@ -7,7 +7,7 @@ public class EntityManager : MonoBehaviour
     public static EntityManager Instance { get; private set; }
     private List<GameObject> summonsList = new List<GameObject>();
     private List<Enemy> currentEnemiesList = new List<Enemy>();
-
+    private List<GameObject> coinEntitiesList = new List<GameObject>();
     public int baseMaxSummons;
     public int baseMaxEnemies;
 
@@ -193,6 +193,7 @@ public class EntityManager : MonoBehaviour
     {
         ClearAndDeleteSummons();
         ClearAndDeleteEnemies();
+        ClearAndDeleteCoins();
         SetMaxSummons(baseMaxSummons);
         player.transform.position = Vector3.zero;
     }
@@ -217,12 +218,25 @@ public class EntityManager : MonoBehaviour
         currentEnemiesList = new List<Enemy>();
     }
 
+    private void ClearAndDeleteCoins()
+    {
+        foreach (GameObject coin in coinEntitiesList)
+        {
+            Destroy(coin.gameObject);
+        }
+        coinEntitiesList = new List<GameObject>();
+    }
 
+    public void RemoveCoinFromList(GameObject coinToRemove)
+    {
+        coinEntitiesList.Remove(coinToRemove);
+    }
 
     public void KillEnemy(Enemy enemy)
     {
         GameManager.Instance.IncreaseScore(1);
-        Instantiate(coinPrefab, enemy.transform.position, enemy.transform.rotation);
+        Transform coin = Instantiate(coinPrefab, enemy.transform.position, enemy.transform.rotation);
+        coinEntitiesList.Add(coin.gameObject);
         currentEnemiesList.Remove(enemy);
         Destroy(enemy.gameObject);
     }
