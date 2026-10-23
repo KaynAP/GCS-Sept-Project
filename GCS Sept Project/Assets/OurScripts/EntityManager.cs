@@ -5,7 +5,8 @@ using UnityEngine;
 public class EntityManager : MonoBehaviour
 {
     public static EntityManager Instance { get; private set; }
-    private List<GameObject> SummonsList = new List<GameObject>();
+    private List<GameObject> summonsList = new List<GameObject>();
+    private List<Enemy> currentEnemiesList = new List<Enemy>();
 
     [SerializeField] private int maxSummons = 1;
     [SerializeField] private Transform enemyPrefab;
@@ -33,23 +34,32 @@ public class EntityManager : MonoBehaviour
 
     private void InputActions_TestKeyPressed(object sender, EventArgs e)
     {
-        SpawnEnemyAtValidLocation();
+        Enemy spawnedEnemy = SpawnEnemyAtValidLocation();
+        if (spawnedEnemy != null)
+        {
+            currentEnemiesList.Add(spawnedEnemy);
+        }
     }
 
     public PlayerControl GetPlayer() {
         return player;
     }
 
+    public List<Enemy> GetEnemiesList()
+    {
+        return currentEnemiesList;
+    }
+
 
     #region Summon Stuff
     public int GetNumberOfSummons()
     {
-        return SummonsList.Count;
+        return summonsList.Count;
     }
 
-    public void AddToSpawnList(GameObject summon)
+    public void AddToSummonsList(GameObject summon)
     {
-        SummonsList.Add(summon);
+        summonsList.Add(summon);
     }
 
     public void SetMaxSummons(int newMax)
@@ -59,13 +69,15 @@ public class EntityManager : MonoBehaviour
 
     public bool CanSummonMore()
     {
-        return SummonsList.Count < maxSummons;
+        return summonsList.Count < maxSummons;
     }
 
     #endregion
 
 
-    private void SpawnEnemyAtValidLocation()
+    #region Enemy Spawn Logic
+
+    private Enemy SpawnEnemyAtValidLocation()
     {
         Vector3 validSpawnLocation = Vector3.zero;
 
@@ -79,11 +91,12 @@ public class EntityManager : MonoBehaviour
 
         if (validSpawnLocation == Vector3.zero) {
             Debug.LogError("Dang you still didn't find a valid random spawn???");
-            return;
+            return null;
         } else
         {
             // Spawn enemy! We found a spot :)
-            Instantiate(enemyPrefab, validSpawnLocation, Quaternion.identity);
+            Enemy newEnemy = Instantiate(enemyPrefab, validSpawnLocation, Quaternion.identity).GetComponent<Enemy>();
+            return newEnemy;
         }
     }
 
@@ -145,6 +158,14 @@ public class EntityManager : MonoBehaviour
         {
             return false;
         }
+    }
+
+    #endregion
+
+
+    public void RemoveEnemyFromList(Enemy enemy)
+    {
+        currentEnemiesList.Remove(enemy);
     }
 
 }

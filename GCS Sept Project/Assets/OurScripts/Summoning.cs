@@ -16,6 +16,8 @@ public class Summoning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.Instance.IsInGamePlay()) {return;}
+
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         var summonPos = new Vector3(mousePos.x, mousePos.y, 1);
         if (Input.GetMouseButtonDown(0))
@@ -23,7 +25,7 @@ public class Summoning : MonoBehaviour
             if (EntityManager.Instance.CanSummonMore())
             {
                 GameObject summon = Instantiate(Summon, summonPos, Quaternion.identity);
-                EntityManager.Instance.AddToSpawnList(summon);
+                EntityManager.Instance.AddToSummonsList(summon);
             }
         }
         

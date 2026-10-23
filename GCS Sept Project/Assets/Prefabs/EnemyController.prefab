@@ -113,6 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChase
   enemySpeed: 2
   hitDamage: 5
+  enemyHealth: 5
 --- !u!1 &2045560786893470013
 GameObject:
   m_ObjectHideFlags: 0

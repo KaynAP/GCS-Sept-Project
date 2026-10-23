@@ -24,6 +24,11 @@ public class GameManager : MonoBehaviour
         gameState = newState;
         Debug.Log($"Current game state: {gameState}");
     }
+
+    public bool IsInGamePlay()
+    {
+        return gameState == GameStates.Gameplay;
+    }
 }
 
 public enum GameStates
