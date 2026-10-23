@@ -10,6 +10,7 @@ public class EntityManager : MonoBehaviour
 
     [SerializeField] private int maxSummons = 1;
     [SerializeField] private Transform enemyPrefab;
+    [SerializeField] private Transform coinPrefab;
 
     [SerializeField] private PlayerControl player;
     [SerializeField] private LayerMask spawnableLayer;
@@ -163,9 +164,11 @@ public class EntityManager : MonoBehaviour
     #endregion
 
 
-    public void RemoveEnemyFromList(Enemy enemy)
+    public void KillEnemy(Enemy enemy)
     {
+        Instantiate(coinPrefab, enemy.transform.position, enemy.transform.rotation);
         currentEnemiesList.Remove(enemy);
+        Destroy(enemy.gameObject);
     }
 
 }

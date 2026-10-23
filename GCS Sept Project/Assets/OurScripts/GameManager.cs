@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance {get; private set;}
     private GameStates gameState = GameStates.MainMenu;
 
+    private int score;
 
     private void Awake()
     {
@@ -28,6 +29,11 @@ public class GameManager : MonoBehaviour
     public bool IsInGamePlay()
     {
         return gameState == GameStates.Gameplay;
+    }
+
+    public void IncreaseScore(int increaseAmount)
+    {
+        score += increaseAmount;
     }
 }
 

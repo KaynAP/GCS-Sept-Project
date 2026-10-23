@@ -28,9 +28,7 @@ public class Enemy : MonoBehaviour
 
     private void ThisEnemyDeath(object sender, EventArgs e)
     {
-        EntityManager.Instance.RemoveEnemyFromList(this);
-        Debug.Log("This enemy died!");
-        Destroy(this.gameObject);
+        EntityManager.Instance.KillEnemy(this);
     }
 
 }
