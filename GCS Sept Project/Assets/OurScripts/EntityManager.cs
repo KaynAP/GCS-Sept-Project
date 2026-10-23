@@ -9,6 +9,8 @@ public class EntityManager : MonoBehaviour
     private List<Enemy> currentEnemiesList = new List<Enemy>();
 
     public int baseMaxSummons;
+    public int baseMaxEnemies;
+
     private int maxSummons;
     [SerializeField] private Transform enemyPrefab;
     [SerializeField] private Transform coinPrefab;
@@ -35,6 +37,20 @@ public class EntityManager : MonoBehaviour
 
         maxSummons = baseMaxSummons;
     }
+
+
+    private void Update()
+    {
+        if (GameManager.Instance.GetGameState() == GameStates.Gameplay && currentEnemiesList.Count < baseMaxEnemies)
+        {
+            Enemy spawnedEnemy = SpawnEnemyAtValidLocation();
+            if (spawnedEnemy != null)
+            {
+                currentEnemiesList.Add(spawnedEnemy);
+            }
+        }
+    }
+
 
     private void InputActions_TestKeyPressed(object sender, EventArgs e)
     {

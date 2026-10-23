@@ -151,6 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntityManager
   baseMaxSummons: 1
+  baseMaxEnemies: 5
   enemyPrefab: {fileID: 7989069631547965947, guid: 41026876aa537b7468d2f04a3daa58d8, type: 3}
   coinPrefab: {fileID: 3299557718696474981, guid: f09a98e5323e66c4bab915414ec7b02a, type: 3}
   player: {fileID: 1242964375}
