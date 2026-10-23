@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df04d9eba71e5f44fb94fe8ea340dd5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  scoreMultiplier: 65
+  scoreMultiplier: 100
 --- !u!1 &272181524
 GameObject:
   m_ObjectHideFlags: 0

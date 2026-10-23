@@ -21,7 +21,7 @@ public class EntityManager : MonoBehaviour
     private int directionsCount = 4;
     private int offCameraDistanceVertical = 10;
     private int offCameraDistanceHorizontal = 17;
-    private int otherAxisOffset = 2;
+    private int otherAxisOffset = 8;
 
     private void Awake()
     {
@@ -131,11 +131,12 @@ public class EntityManager : MonoBehaviour
 
         Vector3 positionToCheck;
         int randomOtherAxisOffset = UnityEngine.Random.Range(1, otherAxisOffset);
+        int otherAxisDirection = UnityEngine.Random.Range(0,2)*2-1;
         switch (directionToCheck)
         {
             default:
             case 1: // Up!
-                positionToCheck = GetPlayer().transform.position + new Vector3(randomOtherAxisOffset, offCameraDistanceVertical, 0);
+                positionToCheck = GetPlayer().transform.position + new Vector3(otherAxisDirection * randomOtherAxisOffset, offCameraDistanceVertical, 0);
                 Debug.Log($"Checking {positionToCheck}");
                 if (IsValidPosition(positionToCheck))
                 {
@@ -144,7 +145,7 @@ public class EntityManager : MonoBehaviour
                 break;
 
             case 2: // Down!
-                positionToCheck = GetPlayer().transform.position + new Vector3(randomOtherAxisOffset, -offCameraDistanceVertical, 0);
+                positionToCheck = GetPlayer().transform.position + new Vector3(otherAxisDirection * randomOtherAxisOffset, -offCameraDistanceVertical, 0);
                 Debug.Log($"Checking {positionToCheck}");
                 if (IsValidPosition(positionToCheck))
                 {
@@ -153,7 +154,7 @@ public class EntityManager : MonoBehaviour
                 break;
 
             case 3: // Left!
-                positionToCheck = GetPlayer().transform.position + new Vector3(-offCameraDistanceHorizontal, randomOtherAxisOffset, 0);
+                positionToCheck = GetPlayer().transform.position + new Vector3(-offCameraDistanceHorizontal, otherAxisDirection * randomOtherAxisOffset, 0);
                 Debug.Log($"Checking {positionToCheck}");
                 if (IsValidPosition(positionToCheck))
                 {
@@ -162,7 +163,7 @@ public class EntityManager : MonoBehaviour
                 break;
 
             case 4: // Right! 
-                positionToCheck = GetPlayer().transform.position + new Vector3(offCameraDistanceHorizontal, randomOtherAxisOffset, 0);
+                positionToCheck = GetPlayer().transform.position + new Vector3(offCameraDistanceHorizontal, otherAxisDirection * randomOtherAxisOffset, 0);
                 Debug.Log($"Checking {positionToCheck}");
                 if (IsValidPosition(positionToCheck))
                 {
