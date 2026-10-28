@@ -4,13 +4,15 @@ public class Coin : MonoBehaviour
 {
     
     public int coinIncrement;
+    public AudioClip coinPickUpSound;
+    public float coinPickUpVolume;
 
-    public void OnCollisionEnter2D(UnityEngine.Collision2D collision)
+    public void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
         var PlayerHitting = collision.gameObject.GetComponent<PlayerControl>();
         if (PlayerHitting != null)
         {
-            Debug.Log("Picking up coin!");
+            AudioManager.Instance.PlaySound(coinPickUpSound, coinPickUpVolume);
             GameManager.Instance.IncreaseCoins(coinIncrement);
             EntityManager.Instance.RemoveCoinFromList(this.gameObject);
             Destroy(this.gameObject);

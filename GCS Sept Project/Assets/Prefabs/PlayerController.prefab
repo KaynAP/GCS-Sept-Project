@@ -327,8 +327,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.68129396, y: 1.2330911}
+  m_Offset: {x: -0.18, y: -0.1}
+  m_Size: {x: 0.41, y: 0.84}
   m_Direction: 0
 --- !u!114 &539264022256747328
 MonoBehaviour:
@@ -342,7 +342,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d297099248022e645addce6b065e848a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerControl
+  playerHurtSoundEffect: {fileID: 8300000, guid: 451cc94990cb50e46b40899e79aa596a, type: 3}
   movSpeed: 5
+  baseMaxHealth: 0
 --- !u!114 &9148637707220823154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,7 +358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Summoning
   Summon: {fileID: 2277009911066511728, guid: 08e8840e97f876a4c9911939b2273e54, type: 3}
-  playerSummon: {fileID: 0}
+  playerSummon: {fileID: 5997354486241911030}
   timeBetweenSummoning: 0
 --- !u!1 &6007319917927682233
 GameObject:

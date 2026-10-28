@@ -10,8 +10,13 @@ public class EntityManager : MonoBehaviour
     private List<GameObject> coinEntitiesList = new List<GameObject>();
     public int baseMaxSummons;
     public int baseMaxEnemies;
+    public float baseChanceToDropCoin;
+    public float baseChanceToDoubleCoin;
 
     private int maxSummons;
+    private int maxEnemies;
+    private float currentChanceToDropCoin;
+    private float currentChanceToDoubleCoin;
     [SerializeField] private Transform enemyPrefab;
     [SerializeField] private Transform coinPrefab;
 
@@ -36,12 +41,15 @@ public class EntityManager : MonoBehaviour
         GameInput.Instance.OnTestKeyPressed += InputActions_TestKeyPressed;
 
         maxSummons = baseMaxSummons;
+        maxEnemies = baseMaxEnemies;
+        currentChanceToDropCoin = baseChanceToDropCoin;
+        currentChanceToDoubleCoin = baseChanceToDoubleCoin;
     }
 
 
     private void Update()
     {
-        if (GameManager.Instance.GetGameState() == GameStates.Gameplay && currentEnemiesList.Count < baseMaxEnemies)
+        if (GameManager.Instance.GetGameState() == GameStates.Gameplay && currentEnemiesList.Count < maxEnemies)
         {
             Enemy spawnedEnemy = SpawnEnemyAtValidLocation();
             if (spawnedEnemy != null)
@@ -90,6 +98,16 @@ public class EntityManager : MonoBehaviour
     public void SetMaxSummons(int newMax)
     {
         maxSummons = newMax;
+    }
+
+    public int GetMaxEnemies()
+    {
+        return maxEnemies;
+    }
+
+    public void SetMaxEnemies(int newMax)
+    {
+        maxEnemies = newMax;
     }
 
     public bool CanSummonMore()
@@ -196,6 +214,9 @@ public class EntityManager : MonoBehaviour
         ClearAndDeleteEnemies();
         ClearAndDeleteCoins();
         SetMaxSummons(baseMaxSummons);
+        maxEnemies = baseMaxEnemies;
+        currentChanceToDropCoin = baseChanceToDropCoin;
+        currentChanceToDoubleCoin = baseChanceToDoubleCoin;
         player.transform.position = Vector3.zero;
     }
 
@@ -236,10 +257,31 @@ public class EntityManager : MonoBehaviour
     public void KillEnemy(Enemy enemy)
     {
         GameManager.Instance.IncreaseScore(1);
-        Transform coin = Instantiate(coinPrefab, enemy.transform.position, enemy.transform.rotation);
-        coinEntitiesList.Add(coin.gameObject);
+
+        bool didCoinSpawn = UnityEngine.Random.Range(0, 11) * 0.1f <= currentChanceToDropCoin;
+        bool didCoinDouble = UnityEngine.Random.Range(0, 11) * 0.1f <= currentChanceToDoubleCoin;
+
+        if (didCoinSpawn && didCoinDouble)
+        {
+            SpawnCoinOnEnemy(enemy);
+            SpawnCoinOnEnemy(enemy);
+        } else if (didCoinSpawn)
+        {
+            SpawnCoinOnEnemy(enemy);
+        }
+
+
         currentEnemiesList.Remove(enemy);
         Destroy(enemy.gameObject);
+    }
+
+    private void SpawnCoinOnEnemy(Enemy enemy)
+    {
+        int randomOffsetX = UnityEngine.Random.Range(-1, 1);
+        int randomOffsetY = UnityEngine.Random.Range(-1, 1);
+        Vector3 spawnPosition = new Vector3(enemy.transform.position.x + randomOffsetX, enemy.transform.position.y + randomOffsetY, 0);
+        Transform coin = Instantiate(coinPrefab, spawnPosition, enemy.transform.rotation);
+        coinEntitiesList.Add(coin.gameObject);
     }
 
 }

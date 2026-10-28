@@ -156,12 +156,12 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.6
+  m_Radius: 0.75
 --- !u!114 &3198418996115458856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,3 +175,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   coinIncrement: 1
+  coinPickUpSound: {fileID: 8300000, guid: 1d531b4d30f71e04e92aef6f974fea0d, type: 3}
+  coinPickUpVolume: 1

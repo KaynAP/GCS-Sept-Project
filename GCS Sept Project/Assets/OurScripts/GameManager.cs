@@ -3,12 +3,19 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance {get; private set;}
+
+    [SerializeField] private PlayerControl player;
+
     private GameStates gameState = GameStates.MainMenu;
+    
 
     private int coinCount;
     private int enemiesKilled;
+    private int currentWaveEnemiesKilled = 0;
     private int finalMultipliedScore;
     public int scoreMultiplier;
+
+    public float difficultyMultiplier;
 
 
     private void Awake()
@@ -65,9 +72,19 @@ public class GameManager : MonoBehaviour
     public void IncreaseScore(int increaseAmount)
     {
         enemiesKilled += increaseAmount;
+        currentWaveEnemiesKilled += increaseAmount;
         finalMultipliedScore = enemiesKilled * scoreMultiplier;
         ScoreUI.Instance.UpdateScore(finalMultipliedScore);
+
+        int currentMaxEnemies = EntityManager.Instance.GetMaxEnemies();
+
+        if (currentWaveEnemiesKilled >= currentMaxEnemies) // Need to increase difficulty.
+        {
+            EntityManager.Instance.SetMaxEnemies(Mathf.CeilToInt(currentMaxEnemies * difficultyMultiplier));
+            currentWaveEnemiesKilled = 0;
+        }
     }
+
 
     public void IncreaseCoins(int increaseAmount)
     {
@@ -77,6 +94,7 @@ public class GameManager : MonoBehaviour
 
     private void ClearScoreData()
     {
+        player.ResetHealth();
         enemiesKilled = 0;
         ScoreUI.Instance.UpdateScore(enemiesKilled);
         coinCount = 0;

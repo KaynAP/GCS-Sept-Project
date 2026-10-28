@@ -4,6 +4,8 @@ using UnityEngine;
 public class SummonBehavior : MonoBehaviour
 {
 
+    public AudioClip summoningSound;
+    public float summoningSoundVolume;
     public int summonSpeed;
     public int summonDamage;
     public int summonHealth;
@@ -13,6 +15,8 @@ public class SummonBehavior : MonoBehaviour
 
     void Start()
     {
+        AudioManager.Instance.PlaySound(summoningSound, summoningSoundVolume);
+
         summonHealthSystem = new HealthSystem(summonHealth);
         summonHealthSystem.OnDeath += SummonDeathEvent;
     }

@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    public AudioClip playerHurtSoundEffect;
     public float movSpeed;
     private float speedX, speedY;
     private Rigidbody2D rb;
@@ -23,6 +24,7 @@ public class PlayerControl : MonoBehaviour
         // TODO: Make like a uhhhhh game ending state.
         Debug.Log("Game Over!");
         GameManager.Instance.SetGameState(GameStates.EndScreen);
+        EntityManager.Instance.ClearAllEntities();
     }
 
     // Update is called once per frame
@@ -53,7 +55,20 @@ public class PlayerControl : MonoBehaviour
     public void Damage(int damageAmount)
     {
         // Add camera shake.
+        AudioManager.Instance.PlaySound(playerHurtSoundEffect);
         playerHealth.Damage(damageAmount);
         // Add SFX to show damage.
+    }
+
+    public void HealToMax()
+    {
+        // TODO: Do we want max health to be something we can increase? Change here if so:
+        playerHealth.Heal(baseMaxHealth);
+    }
+
+
+    public void ResetHealth()
+    {
+        playerHealth.Heal(baseMaxHealth);
     }
 }
