@@ -28,6 +28,7 @@ public class EntityManager : MonoBehaviour
     private int offCameraDistanceHorizontal = 17;
     private int otherAxisOffset = 8;
 
+
     private void Awake()
     {
         if (Instance == null) {
@@ -88,16 +89,19 @@ public class EntityManager : MonoBehaviour
     public void AddToSummonsList(GameObject summon)
     {
         summonsList.Add(summon);
+        ScoreUI.Instance.SetSummonsCount(summonsList.Count, maxSummons);
     }
 
     public void RemoveFromSummonsList(GameObject summon)
     {
         summonsList.Remove(summon);
+        ScoreUI.Instance.SetSummonsCount(summonsList.Count, maxSummons);
     }
 
     public void SetMaxSummons(int newMax)
     {
         maxSummons = newMax;
+        ScoreUI.Instance.SetSummonsCount(summonsList.Count, maxSummons);
     }
 
     public int GetMaxEnemies()
@@ -108,6 +112,11 @@ public class EntityManager : MonoBehaviour
     public void SetMaxEnemies(int newMax)
     {
         maxEnemies = newMax;
+    }
+
+    public int GetMaxSummons()
+    {
+        return maxSummons;
     }
 
     public bool CanSummonMore()

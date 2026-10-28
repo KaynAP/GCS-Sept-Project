@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
         if (currentWaveEnemiesKilled >= currentMaxEnemies) // Need to increase difficulty.
         {
             EntityManager.Instance.SetMaxEnemies(Mathf.CeilToInt(currentMaxEnemies * difficultyMultiplier));
+            EntityManager.Instance.SetMaxSummons(EntityManager.Instance.GetMaxSummons() + 1);
             currentWaveEnemiesKilled = 0;
         }
     }

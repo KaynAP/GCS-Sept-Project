@@ -4,7 +4,8 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
 
-    [SerializeField] private float enemySpeed = 14f;
+    public float enemySpeed;
+    public float enemySpeedVariability;
     public int hitDamage;
     public int enemyHealth;
     private HealthSystem enemyHealthSystem;
@@ -13,6 +14,10 @@ public class Enemy : MonoBehaviour
     {
         enemyHealthSystem = new HealthSystem(enemyHealth);
         enemyHealthSystem.OnDeath += ThisEnemyDeath;
+
+        bool faster = UnityEngine.Random.Range(0, 2) == 0;
+        float variabilityMultiplier = UnityEngine.Random.Range(0, 4);
+        enemySpeed = faster ? enemySpeed + (enemySpeedVariability * variabilityMultiplier) : enemySpeed - (enemySpeedVariability * variabilityMultiplier);
     }
 
     private void Update()

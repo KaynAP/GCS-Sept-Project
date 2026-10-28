@@ -112,6 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChase
   enemySpeed: 2
+  enemySpeedVariability: 0.5
   hitDamage: 5
   enemyHealth: 5
 --- !u!1 &2045560786893470013

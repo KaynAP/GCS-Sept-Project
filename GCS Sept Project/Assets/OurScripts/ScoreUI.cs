@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class ScoreUI : MonoBehaviour
     [SerializeField] private GameObject rootGameObjectToHide;
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private TMP_Text coinCountText;
+    [SerializeField] private TMP_Text summonsCountText;
 
     private void Awake()
     {
@@ -36,6 +38,11 @@ public class ScoreUI : MonoBehaviour
     public void ToggleScoreUI(bool setActive)
     {
         rootGameObjectToHide.SetActive(setActive);
+    }
+
+    public void SetSummonsCount(int currentSummons, int maxSummons)
+    {
+        summonsCountText.text = currentSummons + " / " + maxSummons;
     }
 
 }
