@@ -277,8 +277,8 @@ public class EntityManager : MonoBehaviour
 
     private void SpawnCoinOnEnemy(Enemy enemy)
     {
-        int randomOffsetX = UnityEngine.Random.Range(-1, 1);
-        int randomOffsetY = UnityEngine.Random.Range(-1, 1);
+        float randomOffsetX = UnityEngine.Random.Range(-1, 1) / 2f;
+        float randomOffsetY = UnityEngine.Random.Range(-1, 1) / 2f;
         Vector3 spawnPosition = new Vector3(enemy.transform.position.x + randomOffsetX, enemy.transform.position.y + randomOffsetY, 0);
         Transform coin = Instantiate(coinPrefab, spawnPosition, enemy.transform.rotation);
         coinEntitiesList.Add(coin.gameObject);

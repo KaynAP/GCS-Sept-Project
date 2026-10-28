@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SummonBehavior : MonoBehaviour
@@ -6,6 +7,8 @@ public class SummonBehavior : MonoBehaviour
 
     public AudioClip summoningSound;
     public float summoningSoundVolume;
+    public List<AudioClip> deathSounds;
+    public float deathSoundVolume;
     public int summonSpeed;
     public int summonDamage;
     public int summonHealth;
@@ -70,7 +73,8 @@ public class SummonBehavior : MonoBehaviour
 
     private void SummonDeathEvent(object sender, EventArgs e)
     {
-        Debug.Log("Your summon has died!");
+        AudioClip deathClip = deathSounds[UnityEngine.Random.Range(0, deathSounds.Count)];
+        AudioManager.Instance.PlaySound(deathClip, deathSoundVolume);
         EntityManager.Instance.RemoveFromSummonsList(this.gameObject);
         Destroy(this.gameObject);
         //TODO: Add any polish you want!

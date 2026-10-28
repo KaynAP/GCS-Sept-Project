@@ -242,6 +242,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SummonBehavior
   summoningSound: {fileID: 8300000, guid: 7d09bec5c4446a74a8ebc3b4245f8907, type: 3}
   summoningSoundVolume: 0.3
+  deathSounds:
+  - {fileID: 8300000, guid: bb9f7176fe06c334c9a7aa1bf4045962, type: 3}
+  - {fileID: 8300000, guid: eb6a8b7b089ed1d4f9b27ac662450c47, type: 3}
+  - {fileID: 8300000, guid: dfb499edd6afa0140a5a70e74c0ee4ba, type: 3}
+  - {fileID: 8300000, guid: 8cbee24ea3620ce419482dbb5ca6e233, type: 3}
+  deathSoundVolume: 0.3
   summonSpeed: 1
   summonDamage: 5
   summonHealth: 10
