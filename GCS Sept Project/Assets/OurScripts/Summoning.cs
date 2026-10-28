@@ -7,9 +7,6 @@ public class Summoning : MonoBehaviour
     public float timeBetweenSummoning;
     private Camera mainCam;
     private Vector3 mousePos;
-    private Transform summonTransform;
-    private bool canSummon;
-    private float timer;
     
     void Start()
     {
@@ -19,34 +16,18 @@ public class Summoning : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!GameManager.Instance.IsInGamePlay()) {return;}
+
         mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
         var summonPos = new Vector3(mousePos.x, mousePos.y, 1);
         if (Input.GetMouseButtonDown(0))
         {
-            RemoveSummons(playerSummon);
-            Instantiate(Summon, summonPos, Quaternion.identity, parent: playerSummon.transform);
+            if (EntityManager.Instance.CanSummonMore())
+            {
+                GameObject summon = Instantiate(Summon, summonPos, Quaternion.identity);
+                EntityManager.Instance.AddToSummonsList(summon);
+            }
         }
-
-        //Vector3 rotation = mousePos - transform.position;
-
-        //float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-
-        //transform.rotation = Quaternion.Euler(0, 0, rotZ);
-
-        //if (Input.GetMouseButton(0) && canSummon)
-        //{
-        //    Instantiate(Summon, summonTransform.position, Quaternion.identity);
         
-    }
-
-    private static void RemoveSummons(GameObject gameObject)
-    {
-        foreach (Transform transform in gameObject.transform)
-        {
-            Debug.Log(transform.gameObject);
-
-            transform.BroadcastMessage("Dies");
-            
-        }
     }
 }

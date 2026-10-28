@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 802295184881155137}
   - component: {fileID: 2865177688914841917}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: wand_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4333465516874323752}
   - component: {fileID: 5420016920063061538}
   - component: {fileID: 4362746373030612376}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -240,10 +240,9 @@ GameObject:
   - component: {fileID: 5723006898928376473}
   - component: {fileID: 7895802344187938801}
   - component: {fileID: 6405731579918179321}
-  - component: {fileID: 2474533667074748342}
   - component: {fileID: 539264022256747328}
   - component: {fileID: 9148637707220823154}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: PlayerController
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -289,7 +288,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -331,42 +330,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.68129396, y: 1.2330911}
   m_Direction: 0
---- !u!58 &2474533667074748342
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5997354486241911030}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
 --- !u!114 &539264022256747328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,7 +356,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Summoning
   Summon: {fileID: 2277009911066511728, guid: 08e8840e97f876a4c9911939b2273e54, type: 3}
-  canSummon: 0
+  playerSummon: {fileID: 0}
   timeBetweenSummoning: 0
 --- !u!1 &6007319917927682233
 GameObject:
@@ -405,7 +368,7 @@ GameObject:
   m_Component:
   - component: {fileID: 769080729158454912}
   - component: {fileID: 1163277051300339829}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: wizard_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -498,7 +461,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1226962118738130430}
   - component: {fileID: 6465215221478733927}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player Sprite
   m_TagString: Player
   m_Icon: {fileID: 0}

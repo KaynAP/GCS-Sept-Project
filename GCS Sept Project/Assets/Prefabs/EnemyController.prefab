@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 7989069631547965947}
   - component: {fileID: 8841849073536260803}
   - component: {fileID: 8682373370342240953}
-  - component: {fileID: 2058751498617986567}
   - component: {fileID: 1237373293127256277}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyController
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -44,11 +43,11 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580126601700713149}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 40
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 0
@@ -100,42 +99,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.040399075, y: 0}
   m_Size: {x: 0.76259136, y: 1.555485}
   m_Direction: 0
---- !u!58 &2058751498617986567
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1580126601700713149}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 10
 --- !u!114 &1237373293127256277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyChase
   enemySpeed: 2
+  hitDamage: 5
+  enemyHealth: 5
 --- !u!1 &2045560786893470013
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2946414662362163771}
   - component: {fileID: 5307931623713541801}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemySprite
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -214,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9094559516875598810}
   - component: {fileID: 261660255338625315}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: skeleton_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
